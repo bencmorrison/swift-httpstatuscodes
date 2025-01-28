@@ -250,7 +250,7 @@ public enum HTTPStatusCode: Int, CaseIterable, Sendable {
     /// Creates an `HTTPStatusCode` from the integer value of the http status code
     /// - Parameter code: The http status code
     /// - Returns the status code if found, else nil if not found.
-    init?(from code: Int) {
+    public init?(from code: Int) {
         self.init(rawValue: code)
     }
 }
