@@ -6,7 +6,7 @@ import Foundation
 ///
 /// The code descriptions come from:
 /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
-public enum HTTPStatusCode: Int, CaseIterable, Sendable {
+public enum HTTPStatusCode: Int, CaseIterable, Hashable, Sendable {
     // MARK: 1xx - Informational Responses
     /// This interim response indicates that the client should continue the request
     /// or ignore the response if the request is already finished.

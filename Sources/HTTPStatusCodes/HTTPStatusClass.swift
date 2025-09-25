@@ -25,9 +25,26 @@ public struct HTTPStatusClass: Equatable, Hashable, Sendable {
         HTTPStatusCode.allCases
             .filter { range.contains($0.code) }
     }
+    
+    /// Allows you to check if a specific `HTTPStatusCode` is apart of the class.
+    /// - Parameter code: The `HTTPStatusCode` to check
+    /// - Returns: True if the code is apart of the class
+    @inlinable
+    public func contains(_ code: HTTPStatusCode) -> Bool {
+        range.contains(code.code)
+    }
 }
 
-extension HTTPStatusClass {
+extension HTTPStatusClass: CaseIterable {
+  public static var allCases: [HTTPStatusClass] {
+    [
+      informationalResponses,
+      successfulResponses,
+      redirectionMessages,
+      clientErrorResponses,
+      serverErrorResponses
+    ]
+  }
     /// An informational response indicates that the request was received and
     /// understood. It is issued on a provisional basis while request processing
     /// continues. It alerts the client to wait for a final response.
